@@ -1,11 +1,11 @@
 import pygame
 import pyperclip
-from keyboard import Keyboard
-from plugboard import Plugboard
-from rotor import Rotor
-from reflector import Reflector
-from enigma import Enigma
-from draw import draw
+from Enigma.keyboard import Keyboard
+from Enigma.plugboard import Plugboard
+from Enigma.rotor import Rotor
+from Enigma.reflector import Reflector
+from Enigma.enigma import Enigma
+from Enigma.draw import draw
 
 
 class main_config:
@@ -26,7 +26,7 @@ class main_config:
     answer_offset = 25
 
     # Sfondo
-    sfondo = pygame.image.load("img/enigma_background.png").convert()
+    sfondo = pygame.image.load("Enigma/img/enigma_background.png").convert()
 
     # Impostazione delle domande
     questions = [
