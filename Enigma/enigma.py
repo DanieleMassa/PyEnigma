@@ -18,7 +18,6 @@ class Enigma:
         self.r3.rotate_to_letter(key[2])
 
     def encipher(self, letter):
-
         if self.r2.left[0] == self.r2.notch and self.r3.left[0] == self.r3.notch:
             self.r1.rotate()
             self.r2.rotate()

@@ -55,6 +55,8 @@ class main_config:
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
                 if event.key == pygame.K_RETURN or event.key == pygame.K_KP_ENTER:
                     # Salvataggio della risposta nella variabile corretta
                     answers[current_question_index] = current_answer
@@ -154,9 +156,9 @@ class main:
     IV = Rotor("ESOVPZJAYQUIRHXLNFTGKDCMWB", "J")  # Rotore 4 con configurazione originale
     V = Rotor("VZBRGITYUPSDNHLXAWMJQOFECK", "Z")  # Rotore 5 con configurazione originale
 
-    A = Reflector("EJMZALYXVBWFCRQUONTSPIKHGD")
-    B = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
-    C = Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
+    A = Reflector("EJMZALYXVBWFCRQUONTSPIKHGD")  # Riflettore 1 con configurazione originale
+    B = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")  # Riflettore 2 con configurazione originale
+    C = Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")  # Riflettore 3 con configurazione originale
     KB = Keyboard()
     # PB = Plugboard(["CD", "AG", "OR"])
     PB = Plugboard([INPUT_C1, INPUT_C2, INPUT_C3])
@@ -191,6 +193,8 @@ class main:
             if event.type == pygame.QUIT:
                 animating = False
             elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    animating = False
                 if event.key == pygame.K_DOWN:
                     III.rotate()
                 elif event.key == pygame.K_SPACE:
