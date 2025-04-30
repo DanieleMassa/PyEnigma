@@ -6,12 +6,21 @@ class Plugboard:
         self.left = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.right = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for pair in pairs:
-            A = pair[0]
-            B = pair[1]
-            pos_A = self.left.find(A)
-            pos_B = self.right.find(B)
-            self.left = self.left[:pos_A] + B + self.right[pos_A+1:]
-            self.left = self.left[:pos_B] + A + self.right[pos_B+1:]
+            if len(pair) == 2:  # Aggiunto controllo per sicurezza
+                A = pair[0].upper()
+                B = pair[1].upper()
+                pos_A = self.left.find(A)
+                pos_B = self.left.find(B)
+
+                if pos_A != -1 and pos_B != -1:  # Solo se entrambi i caratteri esistono
+                    # Scambia i caratteri su left
+                    self.left = self.left[:pos_A] + B + self.left[pos_A+1:]
+                    self.left = self.left[:pos_B] + A + self.left[pos_B+1:]
+
+                    # Scambia i caratteri su right per consistenza
+                    self.right = self.right[:pos_A] + B + self.right[pos_A+1:]
+                    self.right = self.right[:pos_B] + A + self.right[pos_B+1:]
+
 
     def forward(self, signal):
         letter = self.right[signal]
